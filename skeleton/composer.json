@@ -1,0 +1,14 @@
+{
+  "name": "your-vendor/your-package",
+  "description": "your-description",
+  "require": {
+    "modseven/core" : "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "<AppName>\\": "application"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
