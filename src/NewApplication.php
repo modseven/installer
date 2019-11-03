@@ -10,7 +10,6 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use Symfony\Component\Filesystem\Filesystem;
-use Symfony\Component\Process\Process;
 
 class NewApplication extends Command
 {
@@ -55,7 +54,7 @@ class NewApplication extends Command
              ->replaceName($name, $directory)
              ->prepareWritableDirectories($directory, $output);
 
-        // Run composer install in new directory
+        // Build the composer install command
         $composer = $this->findComposer();
 
         $commands = [
@@ -76,16 +75,8 @@ class NewApplication extends Command
             }, $commands);
         }
 
-        $process = new Process((array)implode(' && ', $commands), $directory, null, null, null);
-
-        if ('\\' !== DIRECTORY_SEPARATOR && file_exists('/dev/tty') && is_readable('/dev/tty'))
-        {
-            $process->setTty(true);
-        }
-
-        $process->run(static function ($type, $line) use ($output) {
-            $output->write($line);
-        });
+        // Execute the composer statement
+        exec('cd ' . $directory . ' && ' .implode(' && ', $commands));
 
         $output->writeln('<comment>Application ready! Build something amazing.</comment>');
     }
