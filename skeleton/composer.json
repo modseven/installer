@@ -6,7 +6,7 @@
   },
   "autoload": {
     "psr-4": {
-      "<AppName>\\": "application"
+      "<AppName>\\": "application/classes"
     }
   },
   "minimum-stability": "dev",
