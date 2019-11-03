@@ -204,8 +204,8 @@ class NewApplication extends Command
 
         try
         {
-            $filesystem->chmod($appDirectory . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . 'cache', 0755, 0000, true);
-            $filesystem->chmod($appDirectory . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . 'logs', 0755, 0000, true);
+            $filesystem->chmod($appDirectory . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . 'cache', 0765, 0000, true);
+            $filesystem->chmod($appDirectory . DIRECTORY_SEPARATOR . 'application' . DIRECTORY_SEPARATOR . 'logs', 0765, 0000, true);
         }
         catch (IOExceptionInterface $e)
         {
