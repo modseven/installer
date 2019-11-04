@@ -99,8 +99,8 @@ if (isset($_SERVER['SERVER_PROTOCOL'])) {
 }
 
 // Set Modseven::$environment if a 'KOSEVEN_ENV' environment variable has been supplied.
-if (isset($_SERVER['KOSEVEN_ENV'])) {
-    \Modseven\Core::$environment = constant('Modseven::' . strtoupper($_SERVER['KOSEVEN_ENV']));
+if (isset($_SERVER['MODSEVEN_ENV'])) {
+    \Modseven\Core::$environment = constant('\Modseven\Core::' . strtoupper($_SERVER['MODSEVEN_ENV']));
 }
 
 // Set the current configuration class
