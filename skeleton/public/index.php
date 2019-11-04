@@ -136,10 +136,10 @@ require APPPATH . 'routes.php';
 
 if (PHP_SAPI === 'cli') {
     // Try and load minion
-    class_exists('\Minion\Task') OR die('Please enable the Minion module for CLI support.');
-    set_exception_handler(['\Minion\Exception', 'handler']);
+    class_exists('\Modseven\Minion\Task') OR die('Please enable the Minion module for CLI support.');
+    set_exception_handler(['\Modseven\Minion\Exception', 'handler']);
 
-    \Minion\Task::factory(\Minion\CLI::options())->execute();
+    \Modseven\Minion\Task::factory(\Modseven\Minion\CLI::options())->execute();
 } else {
     /**
      * Execute the main request. A source of the URI can be passed, eg: $_SERVER['PATH_INFO'].
